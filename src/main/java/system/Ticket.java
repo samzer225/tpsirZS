@@ -64,7 +64,7 @@ public class Ticket implements Serializable{
         this.statut = statut;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "tag-ticket")
     @ManyToOne
     public Tag getTag() {
         return tag;
@@ -74,7 +74,7 @@ public class Ticket implements Serializable{
         this.tag = tag;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "user-ticket")
     @ManyToOne
     public User getUser() {
         return user;
@@ -85,7 +85,7 @@ public class Ticket implements Serializable{
     }
 
 
-    @JsonBackReference
+    @JsonBackReference(value = "userST-ticket")
     @ManyToMany
     public Set<UserSupportTech> getUserST() {
         return userST;
@@ -95,7 +95,7 @@ public class Ticket implements Serializable{
         this.userST = userST;
     }
 
-    @JsonBackReference
+    @JsonBackReference(value = "comment-ticket")
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.PERSIST)
     public Set<Commentaire> getCommentaire() {
         return commentaire;

@@ -15,8 +15,7 @@ public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	private Long idUser;
-	protected String nom;
-	protected String prenom;
+	protected String name;
 	protected String pseudo;
 	protected String email;
 	protected Set<Ticket> listTickets = new HashSet<>();
@@ -29,9 +28,8 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(String name, String prenom, String pseudo, String email){
-		this.nom = name;
-		this.prenom = prenom;
+	public User(String name,String pseudo, String email){
+		this.name = name;
 		this.pseudo = pseudo;
 		this.email= email;
 	}
@@ -50,18 +48,18 @@ public class User implements Serializable {
 	}
 
 	public String getName() {
-		return nom;
+		return name;
 	}
 
 	public void setName(String name) {
-		this.nom = name;
+		this.name = name;
 	}
-
+	
 	/**
 	 * getTickets
 	 * @return
 	 */
-	@JsonManagedReference	
+	@JsonManagedReference(value = "user-ticket")	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
 	public Set<Ticket> getListTickets() {
 		return listTickets;
@@ -71,7 +69,7 @@ public class User implements Serializable {
 		this.listTickets = listTickets;
 	}
 
-	@JsonManagedReference
+	@JsonManagedReference(value = "comment-user")
 	@OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
 	public Set<Commentaire> getListCom() {
 		return listCom;
@@ -88,5 +86,14 @@ public class User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+	
 
 }

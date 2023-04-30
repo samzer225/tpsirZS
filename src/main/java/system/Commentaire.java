@@ -55,7 +55,7 @@ public class Commentaire implements Serializable {
 		this.dateCommentaire = dateCommentaire;
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value = "comment-ticket")
 	@ManyToOne
 	public Ticket getTicket() {
 		return ticket;
@@ -65,7 +65,7 @@ public class Commentaire implements Serializable {
 		this.ticket = ticket;
 	}
 
-	@JsonBackReference
+	@JsonBackReference(value = "comment-user")
 	@ManyToOne
 	public User getUser() {
 		return user;

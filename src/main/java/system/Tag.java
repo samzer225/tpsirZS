@@ -39,7 +39,7 @@ public class Tag implements Serializable {
         this.libelle = libelle;
     }
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "tag-ticket")
     @OneToMany(mappedBy = "tag", cascade = CascadeType.PERSIST)
     public Set<Ticket> getTickets() {
         return tickets;

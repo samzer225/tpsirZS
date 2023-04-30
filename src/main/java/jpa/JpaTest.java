@@ -38,7 +38,7 @@ public class JpaTest {
 		tx.commit();
 		manager.close();
 		EntityManagerHelper.closeEntityManagerFactory();
-		//		factory.close();
+		//factory.close();
 	}
 
 
@@ -48,10 +48,14 @@ public class JpaTest {
 	private void createUser() {
 		int numOfUsers = manager.createQuery("Select u From User u", User.class).getResultList().size();
 		if (numOfUsers == 0) {
-			User user1 = new User("Maurel","Serou","sange@gmail.com","sam");
+			User user1 = new User("sange@gmail.com","Maurel Serou","sam");
+			User user2 = new User("testNom","sam2","sange@gmail.com3");
 			manager.persist(user1);
+			manager.persist(user2);
 			UserSupportTech tech = new UserSupportTech("Zabra Enoch", "Consultant");
+			UserSupportTech tech2 = new UserSupportTech("SAM Test", "testeur");
 			manager.persist(tech);
+			manager.persist(tech2);
 			Tag tag = new Tag("testTag");
 			Ticket ticket = new Ticket("TestSujet", "TestDesc","TestStatut");
 			ticket.setUser(user1);
@@ -59,6 +63,7 @@ public class JpaTest {
 			ticket.setTag(tag);
 			Commentaire commentaire = new Commentaire("Ceci est test");
 			commentaire.setUser(user1);
+			commentaire.setUser(user2);
 			commentaire.setTicket(ticket);
 			manager.persist(commentaire);
 			manager.persist(tag);

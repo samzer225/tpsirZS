@@ -48,7 +48,7 @@ public class UserResource {
 	@POST
 	@Consumes("application/json")
 	public Response addUser(
-			@RequestBody(description = "Label object to add", required = true) User user) {
+			@RequestBody(description = "Label object to add user", required = true) User user) {
 		try {
 			dao.save(user);
 		} catch (PersistenceException e) {
@@ -79,6 +79,14 @@ public class UserResource {
 			User u = dao.findOne(user.getIdUser());
 			if(user.getName() != null)
 				u.setName(user.getName());
+			if(user.getPseudo() != null)
+				u.setPseudo(user.getPseudo());
+			if(user.getEmail() != null)
+				u.setEmail(user.getEmail());
+			if(user.getListTickets() != null)
+				u.setListTickets(user.getListTickets());
+			if(user.getListCom()!= null)
+				u.setListCom(user.getListCom());
 			dao.update(u);
 		} catch (PersistenceException e) {
 			return Response.serverError().entity("Erreur! Les données ne sont pas correctes : " + user).build();

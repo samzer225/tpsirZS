@@ -3,6 +3,7 @@ package system;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import java.io.Serializable;
@@ -39,7 +40,8 @@ public class UserSupportTech  extends User implements Serializable {
     }
 
 
-    @JsonManagedReference
+    @JsonManagedReference(value = "userST-ticket")
+    @JsonIgnore
     @Override
     @ManyToMany
     public Set<Ticket> getListTickets() {
