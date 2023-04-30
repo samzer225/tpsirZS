@@ -22,7 +22,7 @@ import system.User;
 
 @Path("/user")
 @Produces({"application/json"})
-@Tag(name = "USER RESOURCE", description = "test")
+@Tag(name = "USER RESOURCE")
 public class UserResource {
 
 	UserDao dao = new UserDao();

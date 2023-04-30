@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Path("/tag")
 @Produces({"application/json"})
-@Tag(name = "TAG RESOURCE", description = "test")
+@Tag(name = "TAG RESOURCE")
 public class TagResource {
 	
 	TagDao dao = new TagDao();
@@ -78,6 +78,8 @@ public class TagResource {
 			system.Tag t = dao.findOne(tag.getId());
 			if(tag.getLibelle() != null)
 				t.setLibelle(tag.getLibelle());
+			if(tag.getDes () != null)
+				t.setDes(tag.getDes());
 			if(tag.getTickets() != null)
 				t.setTickets(tag.getTickets());
 			dao.update(t);

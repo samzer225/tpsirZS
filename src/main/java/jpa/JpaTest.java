@@ -56,7 +56,7 @@ public class JpaTest {
 			UserSupportTech tech2 = new UserSupportTech("SAM Test", "testeur");
 			manager.persist(tech);
 			manager.persist(tech2);
-			Tag tag = new Tag("testTag");
+			Tag tag = new Tag("testTag","Test Description");
 			Ticket ticket = new Ticket("TestSujet", "TestDesc","TestStatut");
 			ticket.setUser(user1);
 			ticket.getCommentaire();

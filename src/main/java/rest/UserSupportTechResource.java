@@ -23,7 +23,7 @@ import system.UserSupportTech;
 
 @Path("/userST")
 @Produces({"application/json"})
-@Tag(name = "USER SUPPORT TECH RESOURCE", description = "test")
+@Tag(name = "USER SUPPORT TECH RESOURCE")
 public class UserSupportTechResource extends UserResource {
 
 	UserSupportTechDao dao = new UserSupportTechDao();

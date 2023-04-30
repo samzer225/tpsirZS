@@ -21,7 +21,7 @@ import system.Ticket;
 
 @Path("/ticket")
 @Produces({"application/json"})
-@Tag(name = "TICKET RESOURCE", description = "test")
+@Tag(name = "TICKET RESOURCE")
 public class TicketResource {
 
 	TicketDao dao = new TicketDao();

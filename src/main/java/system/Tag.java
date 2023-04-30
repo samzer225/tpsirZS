@@ -14,12 +14,14 @@ public class Tag implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Long idTag;
     private String libelle;
+    private String des;
     private Set<Ticket> tickets = new HashSet<>();
 
     protected Tag(){}
 
-    public Tag(String libelle){
+    public Tag(String libelle, String des){
         this.libelle =libelle;
+        this.des = des;
     }
 
     @Id
@@ -39,7 +41,15 @@ public class Tag implements Serializable {
         this.libelle = libelle;
     }
 
-    @JsonManagedReference(value = "tag-ticket")
+    public String getDes() {
+		return des;
+	}
+
+	public void setDes(String des) {
+		this.des = des;
+	}
+
+	@JsonManagedReference(value = "tag-ticket")
     @OneToMany(mappedBy = "tag", cascade = CascadeType.PERSIST)
     public Set<Ticket> getTickets() {
         return tickets;
