@@ -57,7 +57,7 @@ public class JpaTest {
 			manager.persist(tech);
 			manager.persist(tech2);
 			Tag tag = new Tag("testTag","Test Description");
-			Ticket ticket = new Ticket("TestSujet", "TestDesc","TestStatut");
+			Ticket ticket = new Ticket("TestSujet2", "TestDesc3","TestStatut4", user2);
 			ticket.setUser(user1);
 			ticket.getCommentaire();
 			ticket.setTag(tag);

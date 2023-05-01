@@ -28,11 +28,12 @@ public class Ticket implements Serializable{
      */
     protected Ticket() {}
 
-    public Ticket( String sujet,String description, String statut) {
+    public Ticket( String sujet,String description, String statut, User u) {
     	this.sujet = sujet;
         this.description = description;
         this.statut = statut;
         this.dateCreationTicket = new Date();
+        this.user = u;
     }
 
     /**
